@@ -1,0 +1,29 @@
+
+<br>
+
+<div class="card text-center">
+
+  <div class="card-header">
+  <br>
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title">Nuevo Departamento</h1>
+    
+    <table class="table table-bordered"><br>
+      <thead>
+        <tr>
+          <th><%= render 'form', apartment: @apartment %></th>
+        </tr>
+      </thead>
+
+      
+    </table><br><br>
+    <div class="float-end"><%= link_to 'Atrás', apartments_path %></div><br>
+    
+    
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>

@@ -1,0 +1,40 @@
+
+<br>
+
+<div class="card text-center">
+
+  <div class="card-header">
+    <br>
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title">
+      <%= @building.nombre %>
+    </h1>
+    
+    <table class="table table-bordered"><br>
+      <thead>
+        <p>
+          <strong>Direccion:</strong>
+          <%= @building.direccion %>
+        </p>
+        <p>
+          <strong>Ciudad:</strong>
+          <%= @building.ciudad %>
+        </p>
+      </thead>
+
+
+    </table><br><br>
+    <div class="float-end">
+    <%= link_to 'Editar', edit_building_path(@building) %> |
+    <%= link_to 'Atrás', buildings_path %>
+    </div>
+    <br>
+    
+    
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>

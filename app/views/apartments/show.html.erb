@@ -1,0 +1,41 @@
+
+<br>
+
+<div class="card text-center">
+
+  <div class="card-header">
+    <br>
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title">
+      <%# <%= @apartment.building_nombre %>
+    </h1>
+    
+    <table class="table table-bordered"><br>
+      <thead>
+        <p>
+          <strong>Número:</strong>
+          <%= @apartment.numero %>
+        </p>
+
+        <p>
+          <strong>Edificio:</strong>
+          <%= @apartment.building_id %>
+        </p>
+      </thead>
+
+
+    </table><br><br>
+    <div class="float-end">
+    <%= link_to 'Editar', edit_apartment_path(@apartment) %> |
+    <%= link_to 'Atrás', apartments_path %>
+    </div>
+    <br>
+    
+    
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
