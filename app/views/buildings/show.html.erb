@@ -2,7 +2,6 @@
 <br>
 
 <div class="card text-center">
-
   <div class="card-header">
     <br>
     <p id="notice"><%= notice %></p>
@@ -12,6 +11,16 @@
       <%= @building.nombre %>
     </h1>
     
+    <div class="card" style="width: 18rem;" >
+      <div class="card-header">
+        <strong>Departamentos N°:</strong>
+      </div>
+      <% @building.apartments.each do |apartments| %>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= apartments.numero%></li>
+      </ul><% end %>
+    </div>
+
     <table class="table table-bordered"><br>
       <thead>
         <p>
@@ -21,15 +30,8 @@
         <p>
           <strong>Ciudad:</strong>
           <%= @building.ciudad %>
-        </p>
-        <%# <% @apartments.each do |apartment| %>
-              <td>
-              <strong>Departamentos N°:</strong>
-              1, 2, 3 
-              </td>
-              <%# <% end %> 
+        </p>              
       </thead>
-
 
     </table><br><br>
     <div class="float-end">
@@ -42,3 +44,4 @@
   </div>
   <%= render "layouts/card_footer" %>
 </div>
+
