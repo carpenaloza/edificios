@@ -9,20 +9,23 @@
   </div>
   <div class="card-body">
     <h1 class="card-title">
-      <%# <%= @apartment.building_nombre %>
+      <%= @apartment.building.nombre %>
+         [ <%= @apartment.building_id %> ]
+        
     </h1>
     
     <table class="table table-bordered"><br>
       <thead>
         <p>
-          <strong>Número:</strong>
-          <%= @apartment.numero %>
-        </p>
-
-        <p>
           <strong>Edificio:</strong>
           <%= @apartment.building_id %>
         </p>
+
+        <p>
+          <strong>Departamento Número:</strong>
+          <%= @apartment.numero %>
+        </p>
+
       </thead>
 
 
@@ -35,7 +38,5 @@
     
     
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
+  <%= render "layouts/card_footer" %>
 </div>

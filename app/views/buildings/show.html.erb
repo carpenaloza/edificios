@@ -22,6 +22,12 @@
           <strong>Ciudad:</strong>
           <%= @building.ciudad %>
         </p>
+        <%# <% @apartments.each do |apartment| %>
+              <td>
+              <strong>Departamentos N°:</strong>
+              1, 2, 3 
+              </td>
+              <%# <% end %> 
       </thead>
 
 
@@ -34,7 +40,5 @@
     
     
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
+  <%= render "layouts/card_footer" %>
 </div>

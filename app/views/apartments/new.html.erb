@@ -13,7 +13,7 @@
     <table class="table table-bordered"><br>
       <thead>
         <tr>
-          <th><%= render 'form', apartment: @apartment %></th>
+          <th><%= render 'form', apartment: @apartment, buildings: @buildings %></th>
         </tr>
       </thead>
 
@@ -23,7 +23,5 @@
     
     
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
+  <%= render "layouts/card_footer" %>
 </div>
