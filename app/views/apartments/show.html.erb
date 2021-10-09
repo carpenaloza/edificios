@@ -21,20 +21,24 @@
   </div>
   <div class="card-body">
     <p id="notice"><%= notice %></p>
-    
-    <table class="table table-bordered"><br>
-      <thead>
-        <div class="col-lg-1 col-sm-1 card_apartments_space" >
-            <div class="card" style="min-width: 122px">
-                <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/243656948_10159674891644675_2660975537748777297_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_ohc=UvCWA5cWYEIAX-r7vLi&_nc_ht=scontent-scl2-1.xx&oh=a1eef66e300101561edaf815c86d7b21&oe=6185A0D8" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title"><%= @apartment.numero %></h5>
-                </div>
-            </div>
-        </div>
-      </thead>
-    </table>
-    
+
+    <div class="card-body">
+      <div class="row justify-content-center">
+          <div class="card col-3 ">
+            
+            <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/244792126_10159675366314675_7619982100937089672_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=0debeb&_nc_ohc=MiOSYwRIopQAX--H5UU&_nc_ht=scontent-scl2-1.xx&oh=ea9e737cd8b8ad01e42aa1b672bdbdf5&oe=61861523" class="d-block w-100">
+            
+              <h5 class="card-title">
+              DEPARTAMENTO N°
+                <%= @apartment.numero  %>
+              </h5>
+            
+          </div>
+      </div>
+  </div>
+
+
+<br>
 
     <div class="float-end card_apartments_space">
         <%= link_to apartments_path, class:"btn btn-light" do %>
@@ -43,5 +47,6 @@
       </div>
 
   </div>
+  <br><br><br>
   <%= render "layouts/card_footer" %>
 </div>
