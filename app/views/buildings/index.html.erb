@@ -2,16 +2,17 @@
 
 <div class="card text-center">
 
-  <div class="card-header">
-    Listado de Edificios
-    <p id="notice"><%= notice %></p>
+  <div class="card-header header_footer">
+    <h1 class="card-title titulos">Edificios</h1>
   </div>
   <div class="card-body">
-    <h1 class="card-title">Edificios</h1>
-    
+    <div class="float-end"><%= link_to "Nuevo Edificio", new_building_path, class: 'btn btn-primary btn-sm'%></div>
+    <br>
+    <p id="notice"><%= notice %></p>
     <table class="table table-bordered"><br>
       <thead>
         <tr>
+          <th>N° Ref.</th>
           <th>Nombre</th>
           <th>Dirección</th>
           <th>Ciudad</th>
@@ -22,12 +23,24 @@
       <tbody>
         <% @buildings.each do |building| %>
           <tr>
+            <td><%= building.id %></td>
             <td><%= building.nombre %></td>
             <td><%= building.direccion %></td>
             <td><%= building.ciudad %></td>
-            <td><%= link_to 'Mostrar', building %></td>
-            <td><%= link_to 'Editar', edit_building_path(building) %></td>
-            <td><%= link_to 'Eliminar', building, method: :delete, data: { confirm: 'Estás seguro que deseas borrar el edificio?' } %></td>
+            <td class="link_show_edit"><%= link_to building do %>
+            <i class="bi bi-eye-fill"></i> Mostrar <% end %>
+            </td>
+
+            <td class="link_show_edit"><%= link_to edit_building_path(building) do %>
+            <i class="bi bi-pencil-square"></i> Editar <% end %>
+            </td>
+
+            <td class= "link_delete">
+            <%= link_to building, method: :delete, data: { confirm: 'Estás seguro que deseas borrar el edificio?' } do%>
+            <i class="bi bi-trash-fill"></i> Eliminar<% end %>
+            </td>
+
+            
           </tr>
         <% end %>
         

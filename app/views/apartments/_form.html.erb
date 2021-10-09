@@ -1,7 +1,7 @@
 <%= form_with(model: apartment) do |form| %>
   <% if apartment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+      <h2><%= pluralize(apartment.errors.count, "[error]") %> Este departamento no puede ser guardado, favor complete todos los campos:</h2>
 
       <ul>
         <% apartment.errors.each do |error| %>
@@ -12,13 +12,7 @@
   <% end %>
 
   <div class="mb-3">
-    <%= form.label :numero, class: 'form-label' %>
-    <%= form.text_field :numero, class: 'form-control' %>
-  </div>
-
-
-  <div class="mb-3">
-    <%= form.label :building_id, class: 'form-label' %>
+    <%= form.label :building_id, "Edificio", class: 'form-label' %>
                 <% if apartment.building %>
                     <%= form.select(:building_id,
                         options_from_collection_for_select(buildings, :id, :nombre, apartment.building_id),
@@ -32,9 +26,15 @@
                 <% end %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :numero, class: 'form-label' %>
+    <%= form.text_field :numero, class: 'form-control' %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+  <%# <%= link_to 'Crear nuevo departamento', new_apartment_path, class:"btn btn-primary" %>
 <% end %>
 
 

@@ -3,7 +3,7 @@ class BuildingsController < ApplicationController
 
   # GET /buildings or /buildings.json
   def index
-    @buildings = Building.includes(:apartments).order(id: :asc)
+    @buildings = Building.includes(:apartments).order(nombre: :asc)
   end
 
   # GET /buildings/1 or /buildings/1.json
@@ -67,15 +67,5 @@ class BuildingsController < ApplicationController
     def building_params
       params.require(:building).permit(:nombre, :direccion, :ciudad)
     end
-
-    # def buscar_apartments
-    #   @apartments = Apartments.find(params[:id])
-    # end
-
-    # # Only allow a list of trusted parameters through.
-    # def apartments_params
-    #   params.require(:apartments).permit(:numero)
-    # end
-
 
 end

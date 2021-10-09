@@ -5,18 +5,20 @@
 
 <div class="card text-center">
 
-  <div class="card-header">
-    Listado de Departamentos
-    <p id="notice"><%= notice %></p>
+  <div class="card-header header_footer">
+    <h1 class="card-title titulos">Departamentos</h1>
   </div>
   <div class="card-body">
-    <h1 class="card-title">Departamentos</h1>
+    <div class="float-end"><%= link_to 'Nuevo Departamento', new_apartment_path, class: 'btn btn-primary btn-sm'%></div> 
+    <br>
+    <p id="notice"><%= notice %></p>
     
     <table class="table table-bordered"><br>
       <thead>
         <tr>
-          <th>Número</th>
-          <th>Edificio</th>
+          <th>N° Referencia</th>
+          <th>Nombre Edificio</th>
+          <th>Número Departamento</th>
           <th colspan="3">Opciones</th>
         </tr>
       </thead>
@@ -24,11 +26,23 @@
       <tbody>
         <% @apartments.each do |apartment| %>
           <tr>
-            <td><%= apartment.numero %></td>
             <td><%= apartment.building_id %></td>
-            <td><%= link_to 'Mostrar', apartment %></td>
-            <td><%= link_to 'Editar', edit_apartment_path(apartment) %></td>
-            <td><%= link_to 'Eliminar', apartment, method: :delete, data: { confirm: 'Estás seguro que deseas borrar el departamento?' } %></td>
+            <td><%= apartment.building.nombre %></td>
+            <td><%= apartment.numero %></td>
+            
+            <td class="link_show_edit"><%= link_to apartment do %>
+            <i class="bi bi-eye-fill"></i> Mostrar <% end %>
+            </td>
+
+            <td class="link_show_edit"><%= link_to edit_apartment_path(apartment) do %>
+            <i class="bi bi-pencil-square"></i> Editar <% end %>
+            </td>
+
+            <td class= "link_delete">
+            <%= link_to apartment, method: :delete, data: { confirm: 'Estás seguro que deseas borrar el departamento?' } do%>
+            <i class="bi bi-trash-fill"></i> Eliminar<% end %>
+            </td>  
+          
           </tr>
         <% end %>
         

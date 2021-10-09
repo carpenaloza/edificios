@@ -3,7 +3,7 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    @apartments = Apartment.includes(:building).order(id: :asc)
+    @apartments = Apartment.includes(:building).order(building_id: :asc)
   end
 
   # GET /apartments/1 or /apartments/1.json
@@ -26,13 +26,13 @@ class ApartmentsController < ApplicationController
   # POST /apartments or /apartments.json
   def create
     @apartment = Apartment.new(apartment_params)
-    # @buildings = Building.select(:id, :nombre).order(id: :asc)
 
     respond_to do |format|
       if @apartment.save
         format.html { redirect_to @apartment, notice: "El departamento fue creado correctamente." }
         format.json { render :show, status: :created, location: @apartment }
       else
+        consultar_buildings
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @apartment.errors, status: :unprocessable_entity }
       end
@@ -76,14 +76,5 @@ class ApartmentsController < ApplicationController
     def consultar_buildings
       @buildings = Building.select(:id, :nombre).order(nombre: :asc)
     end
-
-    # def buscar_building
-    #   @building = Building.find(params[:id])
-    # end
-
-    # def building_params
-    #   params.require(:building).permit(:numero, :apartment_id)
-    # end
-
 
 end

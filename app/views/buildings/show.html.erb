@@ -1,47 +1,50 @@
-
 <br>
-
 <div class="card text-center">
-  <div class="card-header">
-    <br>
-    <p id="notice"><%= notice %></p>
-  </div>
-  <div class="card-body">
-    <h1 class="card-title">
-      <%= @building.nombre %>
-    </h1>
-    
-    <div class="card" style="width: 18rem;" >
-      <div class="card-header">
-        <strong>Departamentos N°:</strong>
+  <div class="card-header header_footer_mostrar">
+      <br><br>
+      <div class="float-center">
+          <h1 class="card-title titulos">
+            <%= @building.nombre %>
+          </h1>
+          <p class="contenido_titulos">
+            <strong>Dirección:</strong>
+            <%= @building.direccion %> |
+          
+            <strong>Ciudad:</strong>
+            <%= @building.ciudad %>
+          </p>  
+          <p class="link_show_edit"> <%= link_to edit_building_path(@building) do %>
+          <i class="bi bi-pencil-square"></i> Editar <% end %>
+          </p>
       </div>
-      <% @building.apartments.each do |apartments| %>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= apartments.numero%></li>
-      </ul><% end %>
-    </div>
-
-    <table class="table table-bordered"><br>
-      <thead>
-        <p>
-          <strong>Direccion:</strong>
-          <%= @building.direccion %>
-        </p>
-        <p>
-          <strong>Ciudad:</strong>
-          <%= @building.ciudad %>
-        </p>              
-      </thead>
-
-    </table><br><br>
-    <div class="float-end">
-    <%= link_to 'Editar', edit_building_path(@building) %> |
-    <%= link_to 'Atrás', buildings_path %>
-    </div>
-    <br>
-    
-    
   </div>
-  <%= render "layouts/card_footer" %>
+
+  <div style="width: 100%; aling-items: left">
+    <p id="notice"><%= notice %></p>
+      <div class="card-body card_apartments"><i class="bi bi-list-stars"></i>
+        <strong>DEPARTAMENTOS</strong>
+      </div>
+      <div class="row" style="aling-items: left">
+          <% @building.apartments.each do |apartments| %>
+                  <div class="col-lg-1 col-sm-1 card_apartments_space" >
+                      <div class="card" style="min-width: 122px">
+                          <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/243656948_10159674891644675_2660975537748777297_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_ohc=UvCWA5cWYEIAX-r7vLi&_nc_ht=scontent-scl2-1.xx&oh=a1eef66e300101561edaf815c86d7b21&oe=6185A0D8" class="card-img-top">
+                          <div class="card-body">
+                              <h5 class="card-title"><%= apartments.numero %></h5>
+                          </div>
+                      </div>
+                  </div>
+          <% end %>
+      </div>
+      <div class="float-end card_apartments_space">
+        <%= link_to buildings_path, class:"btn btn-light" do %>
+          <i class="bi bi-arrow-left-square"></i> Volver
+        <% end %>
+      </div>
+  </div>
+  <div>
+    <%= render "layouts/card_footer" %>
+  </div>
+  
 </div>
 

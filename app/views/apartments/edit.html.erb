@@ -1,6 +1,29 @@
-<h1>Editing Apartment</h1>
+<br>
 
-<%= render 'form', apartment: @apartment, buildings: @buildings %>
+<div class="card text-center">
 
-<%= link_to 'Mostrar', @apartment %> |
-<%= link_to 'Atrás', apartments_path %>
+  <div class="card-header header_footer">
+    <h1 class="card-title titulos">Editando Departamento</h1>
+    <p class="link_show_edit"><%= link_to '[ Mostrar ]', @apartment %></p>
+  </div>
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
+    <table class="table table-bordered"><br>
+      <thead>
+        <tr>
+          <th><%= render 'form', apartment: @apartment, buildings: @buildings %></th>
+        </tr>
+      </thead>
+    </table>
+    <br><br>
+    <div class="float-end card_apartments_space">
+    <%= link_to apartments_path, class:"btn btn-light" do %>
+    <i class="bi bi-arrow-left-square"></i> Volver
+    <% end %>
+    </div>
+  </div>
+  <%= render "layouts/card_footer" %>
+</div>
+    
+    
+  

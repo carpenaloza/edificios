@@ -3,40 +3,45 @@
 
 <div class="card text-center">
 
-  <div class="card-header">
-    <br>
-    <p id="notice"><%= notice %></p>
+  <div class="card-header header_footer">
+    <%= link_to building_path do %>
+      <h1 class="card-title titulos">
+        <%= @apartment.building.nombre %>
+      </h1>
+    <% end %>
+    <p>
+          <strong>N° Referencia Edificio:</strong>
+          <%= @apartment.building_id %>
+        </p>
+    <p class="link_show_edit">
+      <%= link_to edit_apartment_path(@apartment) do %>
+        <i class="bi bi-pencil-square"></i> Editar 
+      <% end %>
+    </p>
   </div>
   <div class="card-body">
-    <h1 class="card-title">
-      <%= @apartment.building.nombre %>
-         [ <%= @apartment.building_id %> ]
-        
-    </h1>
+    <p id="notice"><%= notice %></p>
     
     <table class="table table-bordered"><br>
       <thead>
-        <p>
-          <strong>Edificio:</strong>
-          <%= @apartment.building_id %>
-        </p>
-
-        <p>
-          <strong>Departamento Número:</strong>
-          <%= @apartment.numero %>
-        </p>
-
+        <div class="col-lg-1 col-sm-1 card_apartments_space" >
+            <div class="card" style="min-width: 122px">
+                <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/243656948_10159674891644675_2660975537748777297_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_ohc=UvCWA5cWYEIAX-r7vLi&_nc_ht=scontent-scl2-1.xx&oh=a1eef66e300101561edaf815c86d7b21&oe=6185A0D8" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title"><%= @apartment.numero %></h5>
+                </div>
+            </div>
+        </div>
       </thead>
-
-
-    </table><br><br>
-    <div class="float-end">
-    <%= link_to 'Editar', edit_apartment_path(@apartment) %> |
-    <%= link_to 'Atrás', apartments_path %>
-    </div>
-    <br>
+    </table>
     
-    
+
+    <div class="float-end card_apartments_space">
+        <%= link_to apartments_path, class:"btn btn-light" do %>
+          <i class="bi bi-arrow-left-square"></i> Volver
+        <% end %>
+      </div>
+
   </div>
   <%= render "layouts/card_footer" %>
 </div>

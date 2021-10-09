@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg sticky-top navbar_color">
   <div class="container-fluid">
     
     <a class="navbar-brand">
-      <%= link_to root_path, class: "nav-link" do %>
+      <%= link_to root_path, class: "nav-link navbar_color" do %>
       <i class="bi bi-building"></i>  </a>
           <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,15 +11,15 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link disabled" aria-current="page" href="#">Home</a>
+          <a class="nav-link navbar_color disabled" style="navbar_color_letra" aria-current="page">Home</a>
         </li>
         <li class="nav-item">
-          <%= link_to root_path, class: "nav-link" do %>
+          <%= link_to root_path, class: "nav-link navbar_color" do %>
              Edificios </a>
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to apartments_path, class: "nav-link" do %>
+          <%= link_to apartments_path, class: "nav-link navbar_color" do %>
              Departamentos </a>
           <% end %>
         </li>
