@@ -3,12 +3,12 @@ class BuildingsController < ApplicationController
 
   # GET /buildings or /buildings.json
   def index
-    @buildings = Building.includes(:apartments).order(nombre: :asc)
+    incluir_apartments
   end
 
   # GET /buildings/1 or /buildings/1.json
   def show
-    @buildings = Building.includes(:apartments).order(numero: :asc)
+    incluir_apartments
   end
 
   # GET /buildings/new
@@ -66,6 +66,10 @@ class BuildingsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def building_params
       params.require(:building).permit(:nombre, :direccion, :ciudad)
+    end
+
+    def incluir_apartments
+      @buildings = Building.includes(:apartments).order(nombre: :asc)
     end
 
 end

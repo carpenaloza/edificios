@@ -8,8 +8,6 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/1 or /apartments/1.json
   def show
-    # buscar_building
-    # consultar_buildings
   end
 
   # GET /apartments/new
